@@ -13,23 +13,38 @@ Param(
 $ErrorActionPreference="Stop"
 
 $disallowedChars = @()
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000002A), 0) # 0x0000002A  = '*'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x00000022), 0) # 0x00000022  = quotation mark
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003F), 0) # 0x0000003F  = '?'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003E), 0)     # 0x0000003E  = '>'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003C), 0)     # 0x0000003C  = '<'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003A), 0)     # 0x0000003A  = ':'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000007C), 0)     # 0x0000007C  = '|'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000002F), 0)     # 0x0000002F  = '/'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000005C), 0)     # 0x0000005C  = '\'
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000007F), 0)    # 0x0000007F  = del delete
+# 0x0000002A  = '*'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000002A), 0)
+# 0x00000022  = quotation mark
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x00000022), 0)
+# 0x0000003F  = '?'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003F), 0)
+# 0x0000003E  = '>'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003E), 0)
+# 0x0000003C  = '<'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003C), 0)
+# 0x0000003A  = ':'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000003A), 0)
+# 0x0000007C  = '|'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000007C), 0)
+# 0x0000002F  = '/'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000002F), 0)
+# 0x0000005C  = '\'
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000005C), 0)
+# 0x0000007F  = del delete
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000007F), 0)
 
 # Unsupported control chars
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x00000081), 0) # high octet preset
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000008D), 0) # ri reverse line feed
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000008F), 0) # ss3 single shift three
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x00000090), 0) # dcs device control string
-$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000009D), 0) # osc operating system command
+# high octet preset
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x00000081), 0)
+# ri reverse line feed
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000008D), 0)
+# ss3 single shift three
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000008F), 0)
+# dcs device control string
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x00000090), 0)
+# osc operating system command
+$disallowedChars += [char]::ConvertToUtf32([char]::ConvertFromUtf32([int]0x0000009D), 0)
 
 # Function validates the validity for the char supported by azure blobs
 # Chars outside the range as validated by this function are invalid/control chars
