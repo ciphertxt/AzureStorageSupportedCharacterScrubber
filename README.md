@@ -64,3 +64,32 @@ Destination name: BadCharacter in the name.pdf
 | SourceFileName | DestinationFileName |
 | --- | --- |
 | BadChaÄracter in the name.pdf | BadCharacter in the name.pdf |
+
+## Disallowed Characters
+
+The following is a quick list of illegal characters. Note this is not an exhaustive list which the script provides.
+
+| Character | Code Point | Description |
+| --- | --- | --- |
+| * | 0x0000002A | |
+| " | 0x00000022 | Quotation mark |
+| ? | 0x0000003F | Question mark |
+| > | 0x0000003E | Greater than |
+| < | 0x0000003C | Less than |
+| : | 0x0000003A | Colon |
+| \| | | 0x0000007C | |
+| / | 0x0000002F | Forward slash |
+| \ | 0x0000005C | Backslash |
+| del | 0x0000007F | Delete |
+| | 0x00000081| High octet preset |
+| | 0x0000008D | Ri reverse line feed |
+| | 0x0000008F | ss3 single shift three |  
+| | 0x00000090 | dcs device control string |
+| | 0x0000009D | osc operating system command |
+
+## Resources
+
+- [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)
+- [RFC 3987](https://www.ietf.org/rfc/rfc3987.txt)
+- [Unicode characters](https://www.fileformat.info/info/unicode/)
