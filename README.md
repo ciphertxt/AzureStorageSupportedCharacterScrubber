@@ -2,9 +2,9 @@
 
 Azure Storage supports a wide variety of Unicode characters across containers, blobs, metadata, and snapshots. When you are migrating from another storage system to Azure, you may find that some characters supported in your source system (*e.g.,* AWS S3) are not supported by Azure and will require an object to be renamed.
 
-The PowerShell script [AzureStorageSupportedCharacterScrubber.ps1](AzureStorageSupportedCharacterScrubber.ps1) provides a turnkey solution to discovering illegal characters in your file names with a simple CSV input. If you choose to rename your files to conform to Azure blob storage, you can also choose to create a mapping CSV output which can be used create your objects with a new destination file name (if required).
+The PowerShell script [AzureStorageSupportedCharacterScrubber.ps1](AzureStorageSupportedCharacterScrubber.ps1) provides a turnkey solution to discovering unsupported characters in your file names with a simple CSV input. If you choose to rename your files to conform to Azure blob storage, you can also choose to create a mapping CSV output which can be used create your objects with a new destination file name (if required).
 
-To leverage the script, you can download the sample input CSV ([SourceFileNames.csv](SourceFileNames.csv)). This file contains a single column, `SourceFileName`. The PowerShell script will evaluate each row in the CSV and optionally create a new mapping file ([FixedFileNames.csv](FixedFileNames.csv)) which provides alternative names by replacing illegal characters with a valid character of your choosing.
+To leverage the script, you can download the sample input CSV ([SourceFileNames.csv](SourceFileNames.csv)). This file contains a single column, `SourceFileName`. The PowerShell script will evaluate each row in the CSV and optionally create a new mapping file ([FixedFileNames.csv](FixedFileNames.csv)) which provides alternative names by replacing unsupported characters with a valid character of your choosing.
 
 ## Usage
 
